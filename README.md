@@ -1,6 +1,6 @@
 <header>
 
-test MESSAGE
+Change MESSAGE test
 
 # Hello GitHub Actions
 
