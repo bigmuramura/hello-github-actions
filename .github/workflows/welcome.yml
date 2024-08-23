@@ -11,10 +11,11 @@ jobs:
     steps:
       - run: |
           if [ "${{ github.actor }}" = "nektos/act" ]; then
-            PR_URL=${{ env.PR_URL }}
+            PR_URL=${{ env.PR_URL }} >> $GITHUB_ENV
           else
-            PR_URL=${{ github.event.pull_request.html_url }}
+            PR_URL=${{ github.event.pull_request.html_url }} >> $GITHUB_ENV
           fi
+          echo "PR_URL is: $PR_URL"
       - run: gh pr comment $PR_URL --body "Welcome to the repository!"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
